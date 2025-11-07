@@ -1,4 +1,4 @@
-class BotonesOperacion extends HTMLElement {
+export class BotonesOperacion extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -10,7 +10,6 @@ class BotonesOperacion extends HTMLElement {
       <button class="btn btn-light w-100">${operacion}</button>
     `;
 
-    // Cuando se haga clic, llamamos directamente la función asignada por el padre
     this.shadowRoot.querySelector("button").addEventListener("click", () => {
       if (typeof this.onOperacionClick === "function") {
         this.onOperacionClick(operacion);
@@ -19,4 +18,5 @@ class BotonesOperacion extends HTMLElement {
   }
 }
 
+// Registrar el componente
 customElements.define("botones-operacion", BotonesOperacion);
